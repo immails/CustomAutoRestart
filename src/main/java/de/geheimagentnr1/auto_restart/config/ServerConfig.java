@@ -42,6 +42,9 @@ public class ServerConfig extends AbstractConfig {
 	
 	@NotNull
 	private static final List<String> AUTO_RESTART_WARNING_TIMES_KEY = List.of( AUTO_RESTART_KEY, "warning_times" );
+
+	@NotNull
+	private static final List<String> AUTO_RESTART_WARNING_TEXT_KEY = List.of( AUTO_RESTART_KEY, "warning_text" );
 	
 	@NotNull
 	private static final String ON_EMPTY_RESTART_KEY = "on_empty_restart";
@@ -145,6 +148,7 @@ public class ServerConfig extends AbstractConfig {
 				Timing.build( 1, TimeUnit.SECONDS ).toString()
 			) )
 		);
+		registerConfigValue( "Message to display as a restart time reminder", AUTO_RESTART_WARNING_TEXT_KEY, "§eRestarting in %s..." );
 		pop();
 		push( "Options for restart, if the server is empty:", ON_EMPTY_RESTART_KEY );
 		registerConfigValue(
